@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Map</title>
+  </head>
+  <style>
+    header {
+      margin: 0 10%;
+      background-color: whitesmoke;
+      text-align: center;
+      padding: 1rem;
+    }
+    header h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      color: slategray;
+    }
+    #img-wrapper {
+      margin: 1rem;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <header><h1>Image Map on a Cricket Field</h1></header>
+    <div id="img-wrapper">
+      <img
+        src="http://www.batnbowl.com/wp-content/uploads/2010/06/field.gif"
+        usemap="#image-map"
+      />
+
+      <map name="image-map">
+        <area
+          target="_blank"
+          alt="Third Man"
+          title="Third Man"
+          href="https://thecricketlounge.com/2017/06/read-the-story-behind-the-third-man-position-in-cricket/"
+          coords="110,101,134,120"
+          shape="rect"
+        />
+        <area
+          target="_blank"
+          alt="Slips"
+          title="Slips"
+          href="https://en.wikipedia.org/wiki/Slip_(cricket)#:~:text=In%20cricket%2C%20a%20slip%20fielder,wicket%2Dkeeper's%20reach.&amp;text=Specialist%20slip%20fielders%20are%20sometimes%20called%20%22slippers%22."
+          coords="202,142,175,120"
+          shape="rect"
+        />
+        <area
+          target="_blank"
+          alt="Wicketkeeper"
+          title="Wicketkeeper"
+          href="https://en.wikipedia.org/wiki/Wicket-keeper#:~:text=The%20wicket%2Dkeeper%20in%20the,a%20batsman%20when%20occasion%20arises."
+          coords="223,165,203,148"
+          shape="rect"
+        />
+        <area
+          target="_blank"
+          alt="Gully"
+          title="Gully"
+          href="https://www.pitchvision.com/specialist-fielding-gully#:~:text=Like%20slip%2C%20gully%20is%20an,cutting%20off%20the%20back%20foot."
+          coords="152,190,128,170"
+          shape="rect"
+        />
+        <area
+          target="_blank"
+          alt="Point"
+          title="Point"
+          href="http://news.bbc.co.uk/sport2/hi/cricket/rules_and_equipment/4179946.stm"
+          coords="98,201,122,222"
+          shape="rect"
+        />
+        <area
+          target="_blank"
+          alt="Cover"
+          title="Cover"
+          href="http://news.bbc.co.uk/sport2/hi/cricket/rules_and_equipment/4180006.stm#:~:text=The%20cover%20area%20runs%20from,the%20front%20or%20back%20foot."
+          coords="102,283,124,304"
+          shape="rect"
+        />
+        <area
+          target="_blank"
+          alt="Mid-Off"
+          title="Mid-Off"
+          href="http://news.bbc.co.uk/sport2/hi/cricket/rules_and_equipment/4180192.stm#:~:text=The%20job%20of%20a%20mid,looking%20for%20bat%2Dpad%20chances."
+          coords="180,336,199,356"
+          shape="rect"
+        />
+        <area
+          target="_blank"
+          alt="Bowler"
+          title="Bowler"
+          href="https://en.wikipedia.org/wiki/Bowling_(cricket)"
+          coords="189,286,241,314"
+          shape="rect"
+        />
+      </map>
+    </div>
+  </body>
+</html>
