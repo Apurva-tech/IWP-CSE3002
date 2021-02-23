@@ -1,0 +1,41 @@
+body {
+  background-color: gray;
+}
+
+.wrapper {
+  margin: 20px 10%;
+  padding: 0.5em;
+  background-color: white;
+}
+
+.wrapper h1 {
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-inline-start: 10px;
+}
+
+nav ul li {
+  padding: 5px 20px;
+  margin-right: 3px;
+  display: inline;
+  background-color: black;
+  color: white;
+}
+
+main .mov-score {
+  display: flex;
+  /* width: 50%; */
+}
+
+#score {
+  /* width: 50%; */
+  height: 100%;
+  margin: 5px;
+  padding: 20px;
+  font-size: 30pt;
+  background-color: green;
+  color: white;
+}
