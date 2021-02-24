@@ -1,8 +1,27 @@
 h1 {
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+h2 {
+  text-align: center;
 }
 
 p {
   font-family: "Times New Roman", Times, serif;
-  columns: blue;
+  color: blue;
+  text-align: center;
+}
+
+li {
+  color: brown;
+}
+
+main {
+  background-color: lightcyan;
+  border: 1px solid black;
+  margin: 0 8%;
+}
+main img {
+  border: 2px solid green;
+  border-radius: 1em;
 }
