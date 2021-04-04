@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form id="frm1" action="/action_page.php">
+  Number of miles: <input type="text" name="miles"><br>
+  Cost of a gallon of gas: <input type="text" name="cost" ><br>
+  Car gas consumption (miles per gallon): <input type="text" name="consumption"><br>  
+  <br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>Cost of a specific trip: </p>
+
+<button onclick="myFunction()">Find</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("frm1");
+  var text = 1; 
+  var i;
+  for (i = 0; i < x.length-1;i++) {
+    text *= x.elements[i].value;
+  }
+  document.writeln("The total cost is: " );
+  document.writeln(text);
+}
+</script>
+
+</body>
+</html>

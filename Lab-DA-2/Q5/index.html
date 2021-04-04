@@ -1,0 +1,100 @@
+<HTML>
+    <head>
+      <TITLE>Image Select Test</TITLE>
+      <link rel="stylesheet" href="styles.css">
+      <script type="text/javascript" language='javascript'>
+  
+        function flip() {
+            myimage.src = ColorSelect.children[ColorSelect.selectedIndex].getAttribute('url');
+        }
+  
+      </script>
+    </head>
+  
+    <body>
+      <form>
+        Select an image:<br/>
+        <select id="ColorSelect" onchange="javascript:flip();">
+          <option url="images/1.jpg"  value='One'>One</option>
+          <option url="images/2.jpg"  value='Two'>Two</option>
+          <option url="images/3.jpg"  value='Three'>Three</option>
+          <option url="images/4.jpg"  value='Four'>Four</option>
+          <option url="images/5.jpg"  value='Five'>Five</option>
+        </select>
+  
+      </form>
+  
+      <img src="images/unknown.jpg" class="image" id="myimage" style="height: 200px; " />
+
+
+      <div id="creator">
+		<h1>Greeting Card Maker</h1>
+		<!-- Pick a message with the radio buttons below -->
+		<span>Pick a message</span><br>
+		<input type="radio" name="cardType" id="type1" value="birthday" checked> Happy Birthday!<br>
+		<input type="radio" name="cardType" id="type2" value="loveYou"> Love you!<br>
+		<input type="radio" name="cardType" id="type3" value="missingYou"> Missing you!<br>
+		<input type="radio" name="cardType" id="type4" value="congratulations"> Congratulations!<br>
+
+		<br>
+		
+    <!-- Who is the card for? -->
+		<span>Who is the lucky one?</span>
+		<br>
+		<input type="text" id="receiverTxt">
+		<!-------------------------->
+		
+		<br><br>
+		
+    <!-- What colour should the card be? -->
+		<span>What's their favourite colour?</span>
+		<br>
+		<input type="color" id="color">
+		<!------------------------------------->
+		
+		<br><br>
+		
+		<!-- Pick a font for the message -->
+		<span>Pick a font</span><br>
+		<select name="fonts" id="">
+			<option value="arial">Arial</option>
+			<option value="baloo">Baloo</option>
+			<option value="chewy">Chewy</option>
+			<option value="emilyscandy">Emilys Candy</option>
+			<option value="montserrat">Montserrat</option>
+			<option value="raleway">Raleway</option>
+		</select>
+		<!--------------------------------->
+		
+		<br><br>
+		<!-- Pick a colour for the message -->
+		<span>Pick a font colour</span>
+		<br><br>
+		<input type="color" id="color1">
+		<!----------------------------------->
+		
+		<br><br>
+		
+		<!-- Make your card by clicking on this button -->
+		<button id="createBtn" onclick="makeCard()">Make your card</button>
+		<!----------------------------------------------->
+	</div>
+
+	<div id="card">
+		<span id="message"></span>
+		<br>
+		<span id="receiver"></span>
+	</div>
+  
+    </body>
+  
+    <!-- <script type="text/javascript" language='javascript'>
+        // place this after <body> to run it after body has loaded.
+        var myimage = document.getElementById('myimage');
+        var ColorSelect= document.getElementById('ColorSelect');
+    </script> -->
+
+    <script src="index.js"></script>
+  
+  </HTML>
+  

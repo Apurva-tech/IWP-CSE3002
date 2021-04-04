@@ -1,0 +1,22 @@
+body{
+	font-family: 'Arial';
+	display: flex;
+	justify-content: space-between;
+}
+
+#myimage{
+    height: 200px;
+    width: 500px;
+}
+
+#card{
+	width: 25vw;
+	height: 30vw;
+	background-color: lightblue;
+	margin: 2vw 20vw 0;
+}
+
+#creator{
+	width: 30vw;
+	margin: 0 0 0 5vw;
+}
