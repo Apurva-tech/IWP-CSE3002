@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="heading">
+      Blue Cow by Gelett Burgess (published in the Lark, 1985)
+    </h1>
+    <p id="para">
+      I never saw a <strong>Blue</strong> cow, I never hope to see one; But I
+      can tell you anyhow, I'd rather see than be one.
+    </p>
+    <p>
+      Change the cow's color to: <input type="text" name="color" id="color" />
+      <button onclick="changeColor()">Change</button>
+    </p>
+  </body>
+  <script>
+    let colorInput = document.getElementById("color");
+    let p = document.getElementById("para");
+    let h1 = document.getElementById("heading");
+    console.log(colorInput, p, h1);
+    curColor = /blue/gi;
+    const changeColor = () => {
+      let newColor = colorInput.value;
+      console.log(newColor);
+      h1.textContent = h1.textContent.replaceAll(curColor, newColor);
+      p.textContent = p.textContent.replaceAll(curColor, newColor);
+      curColor = newColor;
+    };
+  </script>
+</html>
