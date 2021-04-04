@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q10</title>
+  </head>
+  <body>
+    <div
+      style="
+        display: inline-block;
+        box-sizing: border-box;
+        border: 1px solid black;
+        padding: 12px;
+      "
+    >
+      <h1>Validate Credit Cards</h1>
+      <div class="fc">
+        <label for="card-name">Credit Card</label>
+        <select name="card-name" id="card-name">
+          <option value="amex">American Express</option>
+          <option value="dinersclub">Diners Club</option>
+          <option value="discover">Discover</option>
+          <option value="jcb">JCB</option>
+          <option value="mastercard">MasterCard</option>
+          <option value="visa">Visa</option>
+        </select>
+      </div>
+      <div class="fc">
+        <label for="card-number">Number</label>
+        <input
+          name="card-number"
+          type="tel"
+          inputmode="numeric"
+          pattern="[0-9\s]{13,19}"
+          autocomplete="cc-number"
+          maxlength="19"
+          placeholder="xxxx xxxx xxxx xxxx"
+          id="card-number"
+        />
+      </div>
+      <button onclick="validate()">Validate</button>
+      <div
+        id="res"
+        style="
+          box-sizing: border-box;
+          border: 1px solid black;
+          padding: 2px;
+          margin-top: 4px;
+        "
+      >
+        Validate Credit Card Number
+      </div>
+    </div>
+  </body>
+  <script>
+    /* 
+   American Express—Numbers start with 34 or 37 and consist of 15 digits.
+   Diners Club—Numbers begin with 300 through 305, or 36 and 38 and consists
+  of 14 digits.
+   Discover—Numbers begin with 6011 or 65 and consist of 16 digits.
+   JCB—Numbers beginning with 2131 or 1800 consist of 15 digits, while
+  numbers beginning with 35 consist of 16 digits.
+  
+  
+  MasterCard—Numbers start with the numbers 51 through 55 and consist of 16
+  digits.
+  Visa—Numbers start with a 4; new cards consist of 16 digits and old cards
+  consist of 13 digits.
+  */
+    let cardName = document.getElementById("card-name");
+    let cardNumber = document.getElementById("card-number");
+    let res = document.getElementById("res");
+
+    let validate = () => {
+      selectedCardName = cardName.value;
+      enteredCardNumber = cardNumber.value;
+
+      console.log(selectedCardName, enteredCardNumber);
+
+      switch (selectedCardName) {
+        case "amex":
+          if (
+            enteredCardNumber.length == 15 &&
+            (enteredCardNumber.startsWith("34") ||
+              enteredCardNumber.startsWith("37"))
+          ) {
+            res.innerHTML = "Valid Card";
+          } else {
+            res.innerHTML = "Invalid Card";
+          }
+          break;
+
+        case "dinersclub":
+          if (
+            enteredCardNumber.length == 16 &&
+            (enteredCardNumber.startsWith("6011") ||
+              enteredCardNumber.startsWith("65"))
+          ) {
+            res.innerHTML = "Valid Card";
+          } else {
+            res.innerHTML = "Invalid Card";
+          }
+          break;
+
+        case "discover":
+          if (
+            enteredCardNumber.length == 15 &&
+            (enteredCardNumber.startsWith("34") ||
+              enteredCardNumber.startsWith("37"))
+          ) {
+            res.innerHTML = "Valid Card";
+          } else {
+            res.innerHTML = "Invalid Card";
+          }
+          break;
+
+        case "jcb":
+          if (
+            enteredCardNumber.length == 15 &&
+            (enteredCardNumber.startsWith("34") ||
+              enteredCardNumber.startsWith("37"))
+          ) {
+            res.innerHTML = "Valid Card";
+          } else {
+            res.innerHTML = "Invalid Card";
+          }
+          break;
+
+        case "mastercard":
+          if (
+            enteredCardNumber.length == 15 &&
+            (enteredCardNumber.startsWith("34") ||
+              enteredCardNumber.startsWith("37"))
+          ) {
+            res.innerHTML = "Valid Card";
+          } else {
+            res.innerHTML = "Invalid Card";
+          }
+          break;
+
+        case "visa":
+          if (
+            enteredCardNumber.length == 15 &&
+            (enteredCardNumber.startsWith("34") ||
+              enteredCardNumber.startsWith("37"))
+          ) {
+            res.innerHTML = "Valid Card";
+          } else {
+            res.innerHTML = "Invalid Card";
+          }
+          break;
+      }
+    };
+  </script>
+</html>
