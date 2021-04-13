@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <style>
+        .game {
+            border-styLe: solid;
+            border-width: 1px;
+            height: 300px;
+            width: 300px;
+            margin-Left: 38%;
+            margin-top: 50px;
+        }
+
+        #wrong {
+            font-size: 20px;
+            font-family: Lucida Sans Unicode;
+        }
+
+        _scrambled {
+            height: 20px;
+            width: 200px;
+            border-styLe: solid;
+            border-width: ipx;
+            text-aLign: center;
+            padding: 10px;
+            margin-Left: 10%;
+            margin-top: 10px;
+        }
+
+        .answer {
+            margin-top: 30px;
+            padding-top: 10px;
+            height: 50px;
+            width: 220px;
+            border-style: solid;
+            border-width: 1px;
+            margin-Left: 30px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            margin-Left: 10px;
+        }
+    </style>
+    <script>
+        var words = ["WRONG", "BACKGROUND", "RIGHT", "CUP"];
+        var hintl = ["Jo turn hamesha hote ho", "Agar actor hote to vo actor hote", "Jo tum kabhi nahi hote", "loote ka choota bhai"]
+        var random = 0;
+        var ward;
+        function start() {
+            var temp = words.length;
+            random = Math.floor(Math.random() * temp);
+            ward = words[random];
+            var data = words[random];
+            var scr_word = document.getElementById("wrong").innerHTML.data;
+           
+            function scramble() {
+                var data = words[random];
+                var scr_word = '';
+                var arr = [];
+                var no = Math.floor(Math.random() * data.length);
+                for (var i = 0; i < data.length;) {
+                    var n = Math.floor(Math.random() * data.length);
+                    if (arr.length == 0) {
+                        arr.push(n);
+                        scr_word += data[n];
+                    }
+                    var a = arr.index0f(n);
+                    if (a == -1) {
+                        arr_push(n);
+                        scr_word += data[n];
+                    }
+                    if (scr_word.length == data.length) {
+                        break;
+                    }
+                }
+                document.getElementRyId("wrong").innerHTML = scr_word;
+            }
+            function submit() {
+                var input = document.getElementById('ans').value;
+                input = input.toUpperCase();
+                if (input == word) {
+                    alert("correct");
+                    start();
+                }
+                else {
+                    alert("Not correct");
+                }
+            }
+        }
+        scramble();
+        function hint() {
+            var a = words.index0f(word);
+            alert(hintl[a]);
+        }
+    </script>
+</head>
+
+<body onload=start()>
+    <center>
+        <hl style="margin-top:100px;">WELCOME TO WORLD OF SCRAMBLE HA! HA! HAI<h1>
+    </center>
+    <div class="game">
+        <div class="scrambled">
+            <span id="wrong" style="coLor:black; font-size:20px;
+font-family: Lucida Sans Unicode;"></span>
+        </div>
+        <div class="answer">
+            <center><input type="text" id="ans" placeholder="Enter your word" style="border-radius:Spx;
+width:180px;height:30px"></center>
+        </div>I
+        <div class="buttons">
+            <button onclick="hint()">Want a Hint click mell</button>
+            <button onclick="submit()">Submit</button>
+            <button onclick="alert('Thank u')">Quit</button>
+            <center><button style="margin-top:10px;" onclick="scramble()">Scrambled
+                    It!!</button></center>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+
+</html>
