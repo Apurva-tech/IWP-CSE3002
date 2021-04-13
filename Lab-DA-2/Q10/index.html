@@ -55,20 +55,6 @@
     </div>
   </body>
   <script>
-    /* 
-   American Express—Numbers start with 34 or 37 and consist of 15 digits.
-   Diners Club—Numbers begin with 300 through 305, or 36 and 38 and consists
-  of 14 digits.
-   Discover—Numbers begin with 6011 or 65 and consist of 16 digits.
-   JCB—Numbers beginning with 2131 or 1800 consist of 15 digits, while
-  numbers beginning with 35 consist of 16 digits.
-  
-  
-  MasterCard—Numbers start with the numbers 51 through 55 and consist of 16
-  digits.
-  Visa—Numbers start with a 4; new cards consist of 16 digits and old cards
-  consist of 13 digits.
-  */
     let cardName = document.getElementById("card-name");
     let cardNumber = document.getElementById("card-number");
     let res = document.getElementById("res");
@@ -83,8 +69,7 @@
         case "amex":
           if (
             enteredCardNumber.length == 15 &&
-            (enteredCardNumber.startsWith("34") ||
-              enteredCardNumber.startsWith("37"))
+            /^3[47]{1}/.test(enteredCardNumber)
           ) {
             res.innerHTML = "Valid Card";
           } else {
@@ -95,8 +80,8 @@
         case "dinersclub":
           if (
             enteredCardNumber.length == 16 &&
-            (enteredCardNumber.startsWith("6011") ||
-              enteredCardNumber.startsWith("65"))
+            (/^30[0-5]{1}/.test(enteredCardNumber) ||
+              /^3[68]{1}/.test(enteredCardNumber))
           ) {
             res.innerHTML = "Valid Card";
           } else {
@@ -106,21 +91,35 @@
 
         case "discover":
           if (
-            enteredCardNumber.length == 15 &&
-            (enteredCardNumber.startsWith("34") ||
-              enteredCardNumber.startsWith("37"))
+            enteredCardNumber.length == 16 &&
+            /^6(011|5){1}/.test(enteredCardNumber)
           ) {
             res.innerHTML = "Valid Card";
           } else {
             res.innerHTML = "Invalid Card";
           }
           break;
+        /*
+           American Express—Numbers start with 34 or 37 and consist of 15 digits.
+           Diners Club—Numbers begin with 300 through 305, or 36 and 38 and consists
+          of 14 digits.
+           Discover—Numbers begin with 6011 or 65 and consist of 16 digits.
+           JCB—Numbers beginning with 2131 or 1800 consist of 15 digits, while
+          numbers beginning with 35 consist of 16 digits.
+          
+          
+          MasterCard—Numbers start with the numbers 51 through 55 and consist of 16
+          digits.
+          Visa—Numbers start with a 4; new cards consist of 16 digits and old cards
+          consist of 13 digits.
+          */
 
         case "jcb":
           if (
-            enteredCardNumber.length == 15 &&
-            (enteredCardNumber.startsWith("34") ||
-              enteredCardNumber.startsWith("37"))
+            (enteredCardNumber.length == 15 &&
+              /^(2311|1800){1}/.test(enteredCardNumber)) ||
+            (enteredCardNumber.length == 16 &&
+              /^[35]{1}/.test(enteredCardNumber))
           ) {
             res.innerHTML = "Valid Card";
           } else {
@@ -130,9 +129,8 @@
 
         case "mastercard":
           if (
-            enteredCardNumber.length == 15 &&
-            (enteredCardNumber.startsWith("34") ||
-              enteredCardNumber.startsWith("37"))
+            enteredCardNumber.length == 16 &&
+            /^5[1-5]{1}/.test(enteredCardNumber)
           ) {
             res.innerHTML = "Valid Card";
           } else {
@@ -142,9 +140,8 @@
 
         case "visa":
           if (
-            enteredCardNumber.length == 15 &&
-            (enteredCardNumber.startsWith("34") ||
-              enteredCardNumber.startsWith("37"))
+            /^4{1}/.test(enteredCardNumber) &&
+            (enteredCardNumber.length == 13 || enteredCardNumber.length == 15)
           ) {
             res.innerHTML = "Valid Card";
           } else {
