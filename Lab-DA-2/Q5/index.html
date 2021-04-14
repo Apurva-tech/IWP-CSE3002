@@ -3,19 +3,36 @@
   <head>
     <link rel="stylesheet" href="styles.css" />
     <script defer>
+      const imgArray = [
+        "images/1.jpg",
+        "images/2.jpg",
+        "images/3.jpg",
+        "images/4.jpg",
+        "images/5.jpg",
+        "images/unknown.jpg",
+      ];
       function changeImagePosition(position) {
         if (position == "right") {
           var gtimage = document.getElementById("gtimage");
+          gtimage.style.display = "block";
           gtimage.style.float = "right";
+          document.getElementById("bodybg").style.backgroundImage = null;
         } else if (position == "left") {
           var gtimage = document.getElementById("gtimage");
+          gtimage.style.display = "block";
           gtimage.style.float = "left";
+          document.getElementById("bodybg").style.backgroundImage = null;
         } else if (position == "bg") {
           var gtimage = document.getElementById("gtimage");
           gtimage.style.display = "none";
-          var imgpaths = document.getElementById("imgpaths").value;
+          var imgpaths = imgArray[document.getElementById("img-select").value];
           document.getElementById("bodybg").style.backgroundImage =
             "url('" + imgpaths + "')";
+        } else {
+          var gtimage = document.getElementById("gtimage");
+          gtimage.style.display = "block";
+          gtimage.style.float = null;
+          document.getElementById("bodybg").style.backgroundImage = null;
         }
       }
       function addText() {
@@ -26,18 +43,11 @@
       function addImage() {
         // var imgpaths = document.getElementById("imgpaths").value;
         // var gtimage = document.getElementById("gtimage");
-        const imgArray = [
-          "images/1.jpg",
-          "images/2.jpg",
-          "images/3.jpg",
-          "images/4.jpg",
-          "images/5.jpg",
-          "images/unknown.jpg",
-        ];
         let imgSelect = document.querySelector("#img-select");
         img = imgSelect.value;
         // console.log(img);
         gtimage.setAttribute("src", imgArray[img]);
+        changeImagePosition(null);
       }
       function Textcolor() {
         var textcolor = document.getElementById("textcolor").value;
