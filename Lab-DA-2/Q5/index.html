@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="styles.css" />
-    <script>
+    <script defer>
       function changeImagePosition(position) {
         if (position == "right") {
           var gtimage = document.getElementById("gtimage");
@@ -24,9 +24,20 @@
         textval.innerHTML = textenter;
       }
       function addImage() {
-        var imgpaths = document.getElementById("imgpaths").value;
-        var gtimage = document.getElementById("gtimage");
-        gtimage.setAttribute("src", imgpaths);
+        // var imgpaths = document.getElementById("imgpaths").value;
+        // var gtimage = document.getElementById("gtimage");
+        const imgArray = [
+          "images/1.jpg",
+          "images/2.jpg",
+          "images/3.jpg",
+          "images/4.jpg",
+          "images/5.jpg",
+          "images/unknown.jpg",
+        ];
+        let imgSelect = document.querySelector("#img-select");
+        img = imgSelect.value;
+        // console.log(img);
+        gtimage.setAttribute("src", imgArray[img]);
       }
       function Textcolor() {
         var textcolor = document.getElementById("textcolor").value;
@@ -43,7 +54,16 @@
   <body id="bodybg">
     <div>
       <h2>
-        Image <input type="text" id="imgpaths" />
+        Image
+        <!-- <input type="text" id="imgpaths" /> -->
+        <select name="img-select" id="img-select">
+          <option value="0">Img 1</option>
+          <option value="1">Img 2</option>
+          <option value="2">Img 3</option>
+          <option value="3">Img 4</option>
+          <option value="4">Img 5</option>
+          <option value="5">Img 6</option>
+        </select>
         <button class="button button1" type="text" onclick="addImage()">
           Add Image
         </button>
