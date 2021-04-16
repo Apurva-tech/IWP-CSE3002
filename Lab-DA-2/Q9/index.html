@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h2 id="hometext">Quiz Game by Apurva Sharma</h2>
+    <button class="button button5" id="strt" onclick="start()">
+      Start Quiz
+    </button>
+    <div class="timers">
+      <span class="clock" id="cdtimer"></span>
+    </div>
+
+    <div id="qs" class="question">
+      <p id="ques">Question here:</p>
+      <form action="#">
+        <input type="radio" id="oa" name="sel" value="IWP" />
+        <label for="oa">IWP</label><br />
+        <input type="radio" id="ob" name="sel" value="Vijayarani A" />
+        <label for="ob">Vijayarani A</label><br />
+        <input type="radio" id="oc" name="sel" value="Programming language" />
+        <label for="oc">Programming language</label><br />
+        <input type="radio" id="od" name="sel" value="Cascading Style Sheet" />
+        <label for="od">Cascading Style Sheet</label><br /><br />
+      </form>
+      <button class="button button5" onclick="goToNext()">Next</button>
+    </div>
+
+    <div class="res" id="result">
+      <p id="scr"></p>
+    </div>
+
+    <script>
+      var questions = [
+        "What is the subject?",
+        "Who is IWP professor?",
+        "What is Javascript?",
+        "What is fullform of CSS?",
+      ];
+      var answer = [
+        "IWP",
+        "Vijayarani A",
+        "Programming language",
+        "Cascading Style Sheet",
+      ];
+      var count = 0;
+      var score = 0;
+      var x;
+
+      function goToNext() {
+        var ele = document.getElementsByName("sel");
+        var i;
+
+        for (i = 0; i < ele.length; i++) {
+          if (ele[i].checked) {
+            if (ele[i].value == answer[count - 1]) {
+              score++;
+            }
+          }
+        }
+
+        clearInterval(x);
+        console.log(count);
+        if (count == 4) {
+          var elem = document.getElementById("qs");
+          elem.parentNode.removeChild(elem);
+          elem = document.getElementById("cdtimer");
+          elem.parentNode.removeChild(elem);
+          var txt = "Your Final Score is: " + score;
+
+          document.getElementById("result").style.display = "block";
+          document.getElementById("result").innerHTML = txt;
+        }
+        start();
+      }
+
+      function start() {
+        document.getElementById("strt").style.display = "none";
+        document.getElementById("hometext").style.display = "none";
+        document.getElementById("qs").style.display = "block";
+
+        document.getElementById("ques").innerHTML = questions[count];
+        count++;
+
+        var countDownDate = new Date().getTime() + 30800;
+
+        x = setInterval(function () {
+          var now = new Date().getTime();
+
+          var distance = countDownDate - now;
+
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById("cdtimer").innerHTML =
+            minutes + "m " + seconds + "s ";
+
+          // If the count down is over, write some text
+          if (distance < 0) {
+            clearInterval(x);
+            goToNext();
+          }
+        }, 1000);
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Department-store customer</title>
+  </head>
+
+  <body
+    style="
+      font-size: 2em;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-weight: 100;
+      color: rgb(0, 0, 3);
+    "
+  >
+    <h1
+      style="
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: 100;
+        color: rgb(0, 0, 2);
+      "
+    >
+      Enter the details in prompt
+    </h1>
+    Account Number:-<span id="acc"></span><br />
+    Credit Limit:-<span id="credit"></span><br />
+    Begining Balance:-<span id="bal"></span><br />
+    Total Expenditure:-<span id="exp"></span><br />
+    Total Credit Payment:-<span id="pay"></span><br />
+    New Balance:-<span id="new"></span><br />
+    <script>
+      var acc = prompt("Account Number");
+      var Credit = parseInt(prompt("Allowed credit"));
+      var beg_bal = parseInt(prompt("Balance at the start of the month"));
+      var exp = parseInt(prompt("What is the expenditure?"));
+      var cred_pay = parseInt(prompt("what is credit payment?"));
+      var new_bal = beg_bal + exp - cred_pay;
+      if (new_bal > Credit) {
+        document.getElementById("acc").innerHTML = acc;
+        document.getElementById("credit").innerHTML = Credit;
+        document.getElementById("bal").innerHTML = beg_bal;
+        document.getElementById("exp").innerHTML = exp;
+        document.getElementById("pay").innerHTML = cred_pay;
+        document.getElementById("new").innerHTML = "Credit Limit Exceed";
+      } else {
+        document.getElementById("acc").innerHTML = acc;
+        document.getElementById("credit").innerHTML = Credit;
+        document.getElementById("bal").innerHTML = beg_bal;
+        document.getElementById("exp").innerHTML = exp;
+        document.getElementById("pay").innerHTML = cred_pay;
+        document.getElementById("new").innerHTML = new_bal;
+      }
+    </script>
+  </body>
+</html>

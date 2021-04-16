@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>q11.html</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 10px;
+            width: 400px;
+        }
+
+        #btn {
+            width: 100%;
+            height: 50px;
+            border: 1 px solid;
+            background: #2691d9;
+            border-radius: 25px;
+            font-size: 18px;
+            color: #e9f4fb;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            margin-bottom: 5px;
+        }
+
+        .center form {
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+
+        form .txt_field {
+            position: relative;
+            border-bottom: 2px solid #adadad;
+            margin: 30px 0;
+        }
+
+        .txt_field input {
+            width: 100%;
+            padding: 0 5px;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        p {
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" placeholder="Name" id="name" required>
+                <span></span>
+            </div>
+            <div class="txt_field">
+                <input type="text" placeholder="Email" id="email" required>
+                <span></span>
+            </div>
+            <div class="txt_field">
+                <input type="text" placeholder="Contact" id="contact" required>
+                <span></span>
+            </div>
+            <div class="txt_field">
+                <input type="text" placeholder="Age" id="age" required>
+                <span></span>
+            </div>
+            <button type="button" onclick="check()" id="btn">CHECK</button>
+        </form>
+        <p id="op1"></p>
+        <p id="op2"></p>
+        <p id="op3"></p>
+        <p id="op4"></p>
+    </div>
+
+
+
+    <script>
+        function check() {
+            var count = 0;
+            var namePatt = new RegExp(/^[A-Z][a-z]+\s[A-Z].$/gm);
+            var emailPatt = new RegExp(/^[a-z0-9\._]+@[a-z]+(\.[a-z]+)+$/gm);
+            var mobilePatt = new RegExp(/^[7-9]{1}[0-9]{9}$/gm);
+
+            var ip_name = document.getElementById("name").value;
+            var ip_email = document.getElementById("email").value;
+            var ip_mobile = document.getElementById("contact").value;
+            var ip_age = document.getElementById("age").value;
+
+
+            var res1 = namePatt.test(ip_name);
+            var res2 = emailPatt.test(ip_email);
+            var res3 = mobilePatt.test(ip_mobile);
+
+            if (res1 == false) {
+                document.getElementById("op1").innerHTML = "Enter valid name";
+                count += 1;
+            }
+
+            if (res2 == false) {
+                document.getElementById("op2").innerHTML = "Enter valid email";
+                count += 1;
+            }
+
+            if (res3 == false) {
+                document.getElementById("op3").innerHTML = "Enter valid contact no.";
+                count += 1;
+
+            }
+
+            if (ip_age < 18 || ip_age > 60) {
+                document.getElementById("op4").innerHTML = "Invalid age entered";
+                count += 1;
+                setInterval(function () {
+                    document.getElementById("op1").innerHTML = "";
+                }, 3000);
+            }
+
+            if (count == 0) {
+                document.getElementById("op1").innerHTML = "VALID INFORMATION ENTERED";
+                setInterval(function () {
+                    document.getElementById("op1").innerHTML = "";
+                }, 3000);
+            }
+            if (count != 0) {
+                setInterval(function () {
+                    document.getElementById("op1").innerHTML = "";
+                    document.getElementById("op2").innerHTML = "";
+                    document.getElementById("op3").innerHTML = "";
+                    document.getElementById("op4").innerHTML = "";
+
+                }, 20000);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
