@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dom validation</title>
+  </head>
+  <style media="screen">
+    table,tr,td{
+      border: solid black 1px;
+      border-collapse: collapse;
+      padding: 8px;
+      margin-left: 30%;
+      margin-top: 10%;
+    }
+  </style>
+  <body style="background-color:white;">
+    <form >
+      <table>
+        <tr>
+          <td><label>User Name</label> </td>
+          <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+          <td><label>Email</label> </td>
+          <td><input type="email" id="email"></td>
+        </tr>
+        <tr>
+          <td><label>Phone Number</label> </td>
+          <td><input type="number" id="phn"></td>
+        </tr>
+        <tr>
+          <td><label>Age</label> </td>
+          <td><input type="number" id="age" max="60" min="18"></td>
+        </tr>
+        <tr>
+          <td><label>Date</label> </td>
+          <td><input type="text" id="date"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><button type="submit" name="button" onclick="validate()">Submit</button> </td>
+        </tr>
+      </table>
+    </form>
+    <script type="text/javascript">
+
+      function validate() {
+        var name=document.querySelector("#name").value;
+        var age=document.querySelector("#age").value;
+        var phn=document.querySelector("#phn").value;
+        var date=document.querySelector("#date").value;
+        if(name.length==0 || age.length==0 || phn.length==0 || date.length==0){
+          alert("Please Fill all the fileds");
+          return;
+        }
+        var pat=/[A-Z][a-z]* [A-z][.][a-z]/;
+        if(!pat.test(name))
+          alert("Name must be in sepcified format");
+        if(phn.length!=10)
+          alert("Phone Number Must be 10 digits");
+        if(age<18 || age>60)
+          alert("Age Must be between 18 and 60");
+        pat=/[0-3][1-9][/][0-3][0-9][/][1-9][0-9][0-9][0-9]/;
+        if(!pat.test(date))
+          alert("date must be in DD/MM/YYYY all in numeric");
+      }
+    </script>
+  </body>
+</html>
